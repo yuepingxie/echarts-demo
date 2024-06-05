@@ -355,9 +355,9 @@ export default function MainMiddle() {
     tooltip: {
       trigger: 'item',
       formatter: function (params, ticket, callback) {
-        if (params.seriesType == "effectScatter") {
+        if (params.seriesType === "effectScatter") {
           return "线路：" + params.data.name + "" + params.data.value[2];
-        } else if (params.seriesType == "lines") {
+        } else if (params.seriesType === "lines") {
           return params.data.fromName + ">" + params.data.toName + "<br />" + params.data.value;
         } else {
           return params.name;
@@ -378,19 +378,19 @@ export default function MainMiddle() {
       map: 'china',
       // 把地图放大1.2倍
       zoom: 1.2,
-      // label: {
-      //   // 鼠标移动显示区域名称
-      //   emphasis: {
-      //     show: true,
-      //     color: '#fff'
-      //   }
-      // },
-      emphasis: {
-        label: {
+      label: {
+        // 鼠标移动显示区域名称
+        emphasis: {
           show: true,
           color: '#fff'
         }
       },
+      // emphasis: {
+      //   label: {
+      //     show: true,
+      //     color: '#fff'
+      //   }
+      // },
       roam: true,
       // 地图样式修改
       itemStyle: {

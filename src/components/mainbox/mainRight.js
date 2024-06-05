@@ -25,7 +25,7 @@ export default function MainRight() {
       </div>
     </>
   );
-}
+};
 
 function BarChart() {
   // 声明颜色数组
