@@ -6,8 +6,10 @@ flexible.js + rem 响应式适配
 Echarts 图表
 
 ## git clone
-```git clone git@github.com:yuepingxie/echarts-demo.git```
-`cd echarts-demo`
+```
+git clone git@github.com:yuepingxie/echarts-demo.git
+cd echarts-demo
+```
 
 ## 初始化
 `npm install`
