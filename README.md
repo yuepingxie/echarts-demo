@@ -1,9 +1,9 @@
 # Echarts大屏可视化
 ## 使用技术
-React
-SuperMap 地图（待添加）
-flexible.js + rem 响应式适配
-Echarts 图表
+· React
+· SuperMap 地图（待添加）
+· flexible.js + rem 响应式适配
+· Echarts 图表
 
 ## git clone
 ```
