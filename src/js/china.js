@@ -1,4 +1,6 @@
-(function(root, factory) {
+/* eslint no-undef: "off"*/
+/* global jQuery, padding */
+(function (root, factory) {
   if (typeof define === "function" && define.amd) {
     // AMD. Register as an anonymous module.
     define(["exports", "echarts"], factory);
@@ -12,8 +14,8 @@
     // Browser globals
     factory({}, root.echarts);
   }
-})(this, function(exports, echarts) {
-  var log = function(msg) {
+})(this, function (exports, echarts) {
+  var log = function (msg) {
     if (typeof console !== "undefined") {
       console && console.error && console.error(msg);
     }

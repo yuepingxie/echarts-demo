@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import "./mainBox.css";
 import ReactEcharts from "echarts-for-react";
 import * as echarts from "echarts";
+import React from "react";
+
 
 export default function MainLeft() {
   return (
@@ -115,7 +117,7 @@ function BarChart() {
         data: [200, 300, 300, 900, 1500, 1200, 600],
         itemStyle: {
           // 修改柱子圆角
-          barBorderRadius: 5,
+          borderRadius: 5,
         },
       },
     ],

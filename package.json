@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:downgrade":"export NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
+    "start:downgrade": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -29,11 +29,7 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ],
-    "rules": {
-      "no-unused-vars": "off",
-      "no-undef": "off"
-    }
+    ]
   },
   "browserslist": {
     "production": [
@@ -51,15 +47,5 @@
     "@types/echarts": "^4.9.22",
     "less-loader": "^7.0.1",
     "postcss-loader": "^4.0.4"
-  },
-  "babel": {
-    "presets": [
-      [
-        "react-app",
-        {
-          "runtime": "automatic"
-        }
-      ]
-    ]
   }
 }

@@ -70,7 +70,7 @@
       data: [200, 300, 300, 900, 1500, 1200, 600],
       itemStyle: {
         // 修改柱子圆角
-        barBorderRadius: 5
+        borderRadius: 5
       }
     }]
   };
@@ -136,54 +136,54 @@
       data: [702, 350, 610, 793, 664]
     }],
     series: [{
-        // 第一组柱子（条状）
-        name: '条',
-        type: 'bar',
-        // 柱子之间的距离
-        barCategoryGap: 50,
-        // 柱子的宽度
-        barWidth: 10,
-        // 层级 相当于z-index
-        yAxisIndex: 0,
-        // 柱子更改样式
-        itemStyle: {
-          barBorderRadius: 20,
-          // 此时的color可以修改柱子的颜色
-          color: function (params) {
-            // params 传进来的是柱子的对象
-            // dataIndex 是当前柱子的索引号
-            // console.log(params);
-            return myColor[params.dataIndex];
-          }
-        },
-        data: [70, 34, 60, 78, 69],
-        // 显示柱子内的百分比文字
-        label: {
-          show: true,
-          position: "inside",
-          // {c} 会自动解析为数据（data内的数据）
-          formatter: "{c}%"
+      // 第一组柱子（条状）
+      name: '条',
+      type: 'bar',
+      // 柱子之间的距离
+      barCategoryGap: 50,
+      // 柱子的宽度
+      barWidth: 10,
+      // 层级 相当于z-index
+      yAxisIndex: 0,
+      // 柱子更改样式
+      itemStyle: {
+        borderRadius: 20,
+        // 此时的color可以修改柱子的颜色
+        color: function (params) {
+          // params 传进来的是柱子的对象
+          // dataIndex 是当前柱子的索引号
+          // console.log(params);
+          return myColor[params.dataIndex];
         }
       },
-      {
-        // 第二组柱子（框状 border）
-        name: '框',
-        type: 'bar',
-        // 柱子之间的距离
-        barCategoryGap: 50,
-        // 柱子的宽度
-        barWidth: 14,
-        // 层级 相当于z-index
-        yAxisIndex: 1,
-        // 柱子修改样式
-        itemStyle: {
-          color: "none",
-          borderColor: "#00c1de",
-          borderWidth: 2,
-          barBorderRadius: 15,
-        },
-        data: [100, 100, 100, 100, 100]
+      data: [70, 34, 60, 78, 69],
+      // 显示柱子内的百分比文字
+      label: {
+        show: true,
+        position: "inside",
+        // {c} 会自动解析为数据（data内的数据）
+        formatter: "{c}%"
       }
+    },
+    {
+      // 第二组柱子（框状 border）
+      name: '框',
+      type: 'bar',
+      // 柱子之间的距离
+      barCategoryGap: 50,
+      // 柱子的宽度
+      barWidth: 14,
+      // 层级 相当于z-index
+      yAxisIndex: 1,
+      // 柱子修改样式
+      itemStyle: {
+        color: "none",
+        borderColor: "#00c1de",
+        borderWidth: 2,
+        borderRadius: 15,
+      },
+      data: [100, 100, 100, 100, 100]
+    }
     ]
   };
   // 3.把配置项给实例对象
@@ -199,21 +199,21 @@
 (function () {
   // 年份对应数据
   var yearData = [{
-      year: "2020", // 年份
-      data: [
-        // 两个数组是因为有两条线
-        [24, 40, 101, 134, 90, 230, 210, 230, 120, 230, 210, 120],
-        [40, 64, 191, 324, 290, 330, 310, 213, 180, 200, 180, 79]
-      ]
-    },
-    {
-      year: "2021", // 年份
-      data: [
-        // 两个数组是因为有两条线
-        [123, 175, 112, 197, 121, 67, 98, 21, 43, 64, 76, 38],
-        [143, 131, 165, 123, 178, 21, 82, 64, 43, 60, 19, 34]
-      ]
-    }
+    year: "2020", // 年份
+    data: [
+      // 两个数组是因为有两条线
+      [24, 40, 101, 134, 90, 230, 210, 230, 120, 230, 210, 120],
+      [40, 64, 191, 324, 290, 330, 310, 213, 180, 200, 180, 79]
+    ]
+  },
+  {
+    year: "2021", // 年份
+    data: [
+      // 两个数组是因为有两条线
+      [123, 175, 112, 197, 121, 67, 98, 21, 43, 64, 76, 38],
+      [143, 131, 165, 123, 178, 21, 82, 64, 43, 60, 19, 34]
+    ]
+  }
   ];
 
   var myChart = echarts.init(document.querySelector(".line .chart"));
@@ -276,17 +276,17 @@
       }
     },
     series: [{
-        type: 'line',
-        smooth: true, // 圆滑的线
-        name: '新增粉丝',
-        data: yearData[0].data[0]
-      },
-      {
-        type: 'line',
-        smooth: true, // 圆滑的线
-        name: '新增游客',
-        data: yearData[0].data[1]
-      }
+      type: 'line',
+      smooth: true, // 圆滑的线
+      name: '新增粉丝',
+      data: yearData[0].data[0]
+    },
+    {
+      type: 'line',
+      smooth: true, // 圆滑的线
+      name: '新增游客',
+      data: yearData[0].data[1]
+    }
     ]
   };
 
@@ -379,93 +379,93 @@
       }
     }],
     series: [{
-        name: '邮件营销',
-        type: 'line',
-        smooth: true, // 圆滑的线
-        // 单独修改当前线条的样式
-        lineStyle: {
-          color: "#0184d5",
+      name: '邮件营销',
+      type: 'line',
+      smooth: true, // 圆滑的线
+      // 单独修改当前线条的样式
+      lineStyle: {
+        color: "#0184d5",
+        width: 2
+      },
+      // 填充区域渐变透明颜色
+      areaStyle: {
+        color: new echarts.graphic.LinearGradient(
+          0,
+          0,
+          0,
+          1,
+          [{
+            offset: 0,
+            color: "rgba(1, 132, 213, 0.4)" // 渐变色的起始颜色
+          },
+          {
+            offset: 0.8,
+            color: "rgba(1, 132, 213, 0.1)" // 渐变线的结束颜色
+          }
+          ],
+          false
+        ),
+        shadowColor: "rgba(0, 0, 0, 0.1)"
+      },
+      // 拐点设置为小圆点
+      symbol: 'circle',
+      // 设置拐点大小
+      symbolSize: 5,
+      // 开始不显示拐点， 鼠标经过显示
+      showSymbol: false,
+      // 设置拐点颜色以及边框
+      itemStyle: {
+        color: "#0184d5",
+        borderColor: "rgba(221, 220, 107, .1)",
+        borderWidth: 12
+      },
+      data: [30, 40, 30, 40, 30, 40, 30, 60, 20, 40, 30, 40, 30, 40, 30, 40, 30, 60, 20, 40, 30, 40, 30, 40, 30, 40, 20, 60, 50, 40]
+    },
+    {
+      name: "转发量",
+      type: "line",
+      smooth: true,
+      lineStyle: {
+        normal: {
+          color: "#00d887",
           width: 2
-        },
-        // 填充区域渐变透明颜色
-        areaStyle: {
+        }
+      },
+      areaStyle: {
+        normal: {
           color: new echarts.graphic.LinearGradient(
             0,
             0,
             0,
             1,
             [{
-                offset: 0,
-                color: "rgba(1, 132, 213, 0.4)" // 渐变色的起始颜色
-              },
-              {
-                offset: 0.8,
-                color: "rgba(1, 132, 213, 0.1)" // 渐变线的结束颜色
-              }
+              offset: 0,
+              color: "rgba(0, 216, 135, 0.4)"
+            },
+            {
+              offset: 0.8,
+              color: "rgba(0, 216, 135, 0.1)"
+            }
             ],
             false
           ),
           shadowColor: "rgba(0, 0, 0, 0.1)"
-        },
-        // 拐点设置为小圆点
-        symbol: 'circle',
-        // 设置拐点大小
-        symbolSize: 5,
-        // 开始不显示拐点， 鼠标经过显示
-        showSymbol: false,
-        // 设置拐点颜色以及边框
-        itemStyle: {
-          color: "#0184d5",
-          borderColor: "rgba(221, 220, 107, .1)",
-          borderWidth: 12
-        },
-        data: [30, 40, 30, 40, 30, 40, 30, 60, 20, 40, 30, 40, 30, 40, 30, 40, 30, 60, 20, 40, 30, 40, 30, 40, 30, 40, 20, 60, 50, 40]
+        }
       },
-      {
-        name: "转发量",
-        type: "line",
-        smooth: true,
-        lineStyle: {
-          normal: {
-            color: "#00d887",
-            width: 2
-          }
-        },
-        areaStyle: {
-          normal: {
-            color: new echarts.graphic.LinearGradient(
-              0,
-              0,
-              0,
-              1,
-              [{
-                  offset: 0,
-                  color: "rgba(0, 216, 135, 0.4)"
-                },
-                {
-                  offset: 0.8,
-                  color: "rgba(0, 216, 135, 0.1)"
-                }
-              ],
-              false
-            ),
-            shadowColor: "rgba(0, 0, 0, 0.1)"
-          }
-        },
-        // 设置拐点 小圆点
-        symbol: "circle",
-        // 拐点大小
-        symbolSize: 5,
-        // 设置拐点颜色以及边框
-        itemStyle: {
-          color: "#00d887",
-          borderColor: "rgba(221, 220, 107, .1)",
-          borderWidth: 12
-        },
-        // 开始不显示拐点， 鼠标经过显示
-        showSymbol: false,
-        data: [130, 10, 20, 40, 30, 40, 80, 60, 20, 40, 90, 40, 20, 140, 30, 40, 130, 20, 20, 40, 80, 70, 30, 40, 30, 120, 20, 99, 50, 20]
-      }
+      // 设置拐点 小圆点
+      symbol: "circle",
+      // 拐点大小
+      symbolSize: 5,
+      // 设置拐点颜色以及边框
+      itemStyle: {
+        color: "#00d887",
+        borderColor: "rgba(221, 220, 107, .1)",
+        borderWidth: 12
+      },
+      // 开始不显示拐点， 鼠标经过显示
+      showSymbol: false,
+      data: [130, 10, 20, 40, 30, 40, 80, 60, 20, 40, 90, 40, 20, 140, 30, 40, 130, 20, 20, 40, 80, 70, 30, 40, 30, 120, 20, 99, 50, 20]
+    }
     ]
   };
 
@@ -518,25 +518,25 @@
         show: false
       },
       data: [{
-          value: 1,
-          name: "0岁以上"
-        },
-        {
-          value: 4,
-          name: "20-29岁"
-        },
-        {
-          value: 2,
-          name: "30-39岁"
-        },
-        {
-          value: 2,
-          name: "40-49岁"
-        },
-        {
-          value: 1,
-          name: "50岁以上"
-        }
+        value: 1,
+        name: "0岁以上"
+      },
+      {
+        value: 4,
+        name: "20-29岁"
+      },
+      {
+        value: 2,
+        name: "30-39岁"
+      },
+      {
+        value: 2,
+        name: "40-49岁"
+      },
+      {
+        value: 1,
+        name: "50岁以上"
+      }
       ]
     }]
   };
@@ -584,33 +584,33 @@
         length2: 8
       },
       data: [{
-          value: 26,
-          name: '北京'
-        },
-        {
-          value: 24,
-          name: '山东'
-        },
-        {
-          value: 25,
-          name: '河北'
-        },
-        {
-          value: 20,
-          name: '江苏'
-        },
-        {
-          value: 25,
-          name: '浙江'
-        },
-        {
-          value: 30,
-          name: '四川'
-        },
-        {
-          value: 42,
-          name: '湖北'
-        }
+        value: 26,
+        name: '北京'
+      },
+      {
+        value: 24,
+        name: '山东'
+      },
+      {
+        value: 25,
+        name: '河北'
+      },
+      {
+        value: 20,
+        name: '江苏'
+      },
+      {
+        value: 25,
+        name: '浙江'
+      },
+      {
+        value: 30,
+        name: '四川'
+      },
+      {
+        value: 42,
+        name: '湖北'
+      }
       ]
     }]
   };

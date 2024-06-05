@@ -1,6 +1,7 @@
 import "./mainBox.css";
 import ReactEcharts from "echarts-for-react";
 import * as echarts from "echarts";
+import React from "react";
 
 export default function MainRight() {
   return (
@@ -90,7 +91,7 @@ function BarChart() {
         yAxisIndex: 0,
         // 柱子更改样式
         itemStyle: {
-          barBorderRadius: 20,
+          borderRadius: 20,
           // 此时的color可以修改柱子的颜色
           color: function (params) {
             // params 传进来的是柱子的对象
@@ -123,7 +124,7 @@ function BarChart() {
           color: "none",
           borderColor: "#00c1de",
           borderWidth: 2,
-          barBorderRadius: 15,
+          borderRadius: 15,
         },
         data: [100, 100, 100, 100, 100],
       },
