@@ -15,7 +15,7 @@ li {
 
 body {
   background: url(.././../assets/images/bg.jpg) no-repeat top center;
-  line-height: 1.15;
+  line-height: 1.15rem;
 }
 
 header {
@@ -136,6 +136,10 @@ header .show-time {
 
 .mainbox .panel h2 .a-active {
   color: #fff;
+}
+
+.mainbox .panel h2 .a-unactive {
+  color: #a7a7a7;
 }
 
 .mainbox .panel .chart {

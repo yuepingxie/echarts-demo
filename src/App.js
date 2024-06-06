@@ -1,13 +1,10 @@
-import Header from "./components/header/header.js";
-import MainBox from "./components/mainbox/mainBox.js";
 import React from "react";
-
+import Home from "./views/Home";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <MainBox />
+      <Home />
     </div>
   );
 }

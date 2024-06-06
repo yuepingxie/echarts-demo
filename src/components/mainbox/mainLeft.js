@@ -1,37 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./mainBox.css";
 import ReactEcharts from "echarts-for-react";
 import * as echarts from "echarts";
 import React from "react";
 
-
 export default function MainLeft() {
   return (
     <>
       <div className="column">
-        <div className="panel bar">
-          <h2>柱形图-就业行业</h2>
-          {/* <InitChart option={{ option1 }} />
-           */}
-          <BarChart />
-          <div className="panel-footer"></div>
-        </div>
-        <div className="panel line">
-          <h2>
-            折线图-人员变化
-            <a className="a-active" href="#">
-              2020
-            </a>
-            <a href="#">2021</a>
-          </h2>
-          <LineChart />
-          <div className="panel-footer"></div>
-        </div>
-        <div className="panel pie">
-          <h2>饼形图-年龄分布</h2>
-          <PieChart />
-          <div className="panel-footer"></div>
-        </div>
+        <BarChart />
+        <LineChart />
+        <PieChart />
       </div>
     </>
   );
@@ -124,7 +103,6 @@ function BarChart() {
   };
 
   // echarts图标自适应容器大小
-
   const chartRef = useRef(null);
   useEffect(() => {
     const chart = echarts.init(chartRef.current);
@@ -144,12 +122,10 @@ function BarChart() {
   }, [option]);
 
   return (
-    <div className="chart" ref={chartRef}>
-      {/* <ReactEcharts
-        className="chart"
-        style={{ height: "3rem" }}
-        option={option}
-      /> */}
+    <div className="panel bar">
+      <h2>柱形图-就业行业</h2>
+      <div className="chart" ref={chartRef}></div>
+      <div className="panel-footer"></div>
     </div>
   );
 }
@@ -261,13 +237,56 @@ function LineChart() {
     ],
   };
 
+  // echarts图标自适应容器大小
+  const chartRef = useRef(null);
+  let chart;
+
+  useEffect(() => {
+    chart = echarts.init(chartRef.current);
+    chart.setOption(option);
+  }, []);
+
+  //创建-个resize 事件
+  const echartsResize = () => {
+    echarts.init(chartRef.current).resize();
+    window.addEventListener("resize", echartsResize);
+  };
+  //页面卸载，销毁监所
+  useEffect(() => {
+    return () => {
+      window.removeEventListener("resize", echartsResize);
+    };
+  }, [option]);
+
+  function handleChangeYear(e) {
+    console.log(e);
+    if (e.target.id === "a1") {
+      e.target.className = "a-active";
+      option.series[0].data = yearData[0].data[0];
+      option.series[1].data = yearData[0].data[1];
+      document.getElementById("a2").className = "";
+    } else if (e.target.id === "a2") {
+      e.target.className = "a-active";
+      option.series[0].data = yearData[1].data[0];
+      option.series[1].data = yearData[1].data[1];
+      document.getElementById("a1").className = "";
+    }
+    chart.setOption(option);
+  }
+
   return (
-    <div className="chart">
-      <ReactEcharts
-        className="chart"
-        style={{ height: "3rem" }}
-        option={option}
-      />
+    <div className="chart panel line">
+      <h2>
+        折线图-人员变化
+        <a id="a1" className="a-active" onClick={handleChangeYear} href="#">
+          2020
+        </a>
+        <a id="a2" onClick={handleChangeYear} href="#">
+          2021
+        </a>
+      </h2>
+      <div ref={chartRef} style={{ height: "3rem" }}></div>
+      <div className="panel-footer"></div>
     </div>
   );
 }
@@ -338,13 +357,63 @@ function PieChart() {
     ],
   };
 
+  // echarts图标自适应容器大小
+  const chartRef = useRef(null);
+  let chart;
+
+  useEffect(() => {
+    chart = echarts.init(chartRef.current);
+    chart.setOption(option);
+  }, []);
+
+  //创建-个resize 事件
+  const echartsResize = () => {
+    echarts.init(chartRef.current).resize();
+    window.addEventListener("resize", echartsResize);
+  };
+  //页面卸载，销毁监所
+  useEffect(() => {
+    return () => {
+      window.removeEventListener("resize", echartsResize);
+    };
+  }, [option]);
+
   return (
-    <div className="chart">
-      <ReactEcharts
-        className="chart"
-        style={{ height: "3rem" }}
-        option={option}
-      />
+    // <div className="chart">
+    <div className="chart panel pie">
+      <h2>饼形图-年龄分布</h2>
+      <div ref={chartRef} style={{ height: "3rem" }}></div>
+      <div className="panel-footer"></div>
     </div>
+    // </div>
+  );
+}
+
+function ResizeChart(option) {
+  // echarts图标自适应容器大小
+  const chartRef = useRef(null);
+  let chart;
+
+  useEffect(() => {
+    chart = echarts.init(chartRef.current);
+    chart.setOption(option);
+  }, []);
+
+  //创建-个resize 事件
+  const echartsResize = () => {
+    echarts.init(chartRef.current).resize();
+    window.addEventListener("resize", echartsResize);
+  };
+  //页面卸载，销毁监所
+  useEffect(() => {
+    return () => {
+      window.removeEventListener("resize", echartsResize);
+    };
+  }, [option]);
+
+  return (
+    <>
+      <div ref={chartRef} style={{ height: "3rem" }}></div>
+    </>
   );
 }
