@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import debounce from "lodash.debounce";
-import s from "./index.less";
+import "./index.less";
 
 class Comp extends Component {
   constructor(p) {
@@ -27,7 +27,7 @@ class Comp extends Component {
     const { scale } = this.state;
     return (
       <div
-        className={s["scale-box"]}
+        className={"scale-box"}
         style={{
           transform: `scale(${scale}) translate(-50%, -50%)`,
           WebkitTransform: `scale(${scale}) translate(-50%, -50%)`,

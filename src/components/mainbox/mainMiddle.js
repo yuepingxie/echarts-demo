@@ -3,6 +3,7 @@ import "../../js/china.js";
 import { useEffect, useRef } from "react";
 import * as echarts from "echarts";
 import React from "react";
+// import { ScaleViewContainer, ScaleViewItem } from 'react-scale-view';
 
 export default function MainMiddle() {
   var geoCoordMap = {
