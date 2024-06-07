@@ -1,0 +1,13 @@
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0.75rem;
+  z-index: 999;
+  width: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav Link {
+  color: white;
+}
