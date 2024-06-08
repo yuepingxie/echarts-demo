@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useLoginMutation, useRegisterMutation } from '../../store/api/authApi';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/reducer/authSlice';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const AuthForm = () => {
     const [isLoginForm, setIsLoginForm] = useState(true);
@@ -19,6 +19,11 @@ const AuthForm = () => {
     const dispatch = useDispatch();
     // 获取navigate
     const navigate = useNavigate();
+    const location = useLocation();
+
+    // console.log("auth-form", location.state.preLocation);
+
+    const from = location.state?.preLocation?.pathname || "/"
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -26,7 +31,6 @@ const AuthForm = () => {
         // 获取用户输入的内容
         const username = usernameInp.current.value
         const password = pwdInp.current.value
-        console.log(username, password);
 
         // 处理登录功能
         if (isLoginForm) {
@@ -37,14 +41,14 @@ const AuthForm = () => {
                 if (!res.error) {
                     // 登录成功，向系统中添加标识，标记用户的登录状态
                     // 登录状态（布尔值，token(jwt)，用户信息）
+                    console.log(res);
                     dispatch(login({
                         token: res.data.jwt,
                         user: res.data.user
                     }))
                     // 跳转到根目录 navigate
-                    navigate("/", { replace: true })
+                    navigate({ from }, { replace: true })
                 }
-
             })
         } else {
             const email = emailInp.current.value;
