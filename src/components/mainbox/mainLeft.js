@@ -124,7 +124,7 @@ function BarChart() {
   return (
     <div className="panel bar">
       <h2>柱形图-就业行业</h2>
-      <div className="chart" ref={chartRef}></div>
+      <div className="chart" style={{ height: "3rem" }} ref={chartRef}></div>
       <div className="panel-footer"></div>
     </div>
   );
