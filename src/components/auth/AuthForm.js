@@ -30,7 +30,6 @@ const AuthForm = () => {
 
         // 处理登录功能
         if (isLoginForm) {
-            console.log('登录->', username, password);
             loginFn({
                 identifier: username,
                 password
@@ -63,8 +62,6 @@ const AuthForm = () => {
         }
 
     }
-
-
 
     return (
         <div>
