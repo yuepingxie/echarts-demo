@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import "./header.css";
-import Nav from "../menu/menu";
+import Menu from "../menu/menu";
 
 export default function Header() {
     return (
         <div>
             <header className="App-header">
-                <Nav />
+                <Menu />
                 <h1>数据可视化-ECharts </h1>
                 <Time />
             </header>

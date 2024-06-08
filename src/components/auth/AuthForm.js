@@ -21,8 +21,6 @@ const AuthForm = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // console.log("auth-form", location.state.preLocation);
-
     const from = location.state?.preLocation?.pathname || "/"
 
     const submitHandler = (e) => {
@@ -41,13 +39,12 @@ const AuthForm = () => {
                 if (!res.error) {
                     // 登录成功，向系统中添加标识，标记用户的登录状态
                     // 登录状态（布尔值，token(jwt)，用户信息）
-                    console.log(res);
                     dispatch(login({
                         token: res.data.jwt,
                         user: res.data.user
                     }))
                     // 跳转到根目录 navigate
-                    navigate({ from }, { replace: true })
+                    navigate(from, { replace: true })
                 }
             })
         } else {
@@ -91,16 +88,18 @@ const AuthForm = () => {
                         <button>登录</button> :
                         <button>注册</button>
                     }
-                    <a href='#' onClick={
-                        event => {
-                            console.log(event);
-                            console.log(isLoginForm);
-                            event.preventDefault();
-                            setIsLoginForm(prevState => !prevState);
-                            console.log(isLoginForm);
+                    <a href='#'
+                        onClick={
+                            event => {
+                                console.log(event);
+                                console.log(isLoginForm);
+                                event.preventDefault();
+                                setIsLoginForm(prevState => !prevState);
+                                console.log(isLoginForm);
 
+                            }
                         }
-                    } style={{ color: "white" }}>
+                        style={{ color: "white" }}>
                         {
                             isLoginForm ?
                                 "没有账号？点击注册" :

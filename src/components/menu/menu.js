@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { logout } from "../../store/reducer/authSlice";
 import { useDispatch } from 'react-redux';
 
-export default function Nav() {
+export default function Menu() {
     const auth = useSelector(state => state.auth)
     const dispatch = useDispatch();
 
@@ -20,8 +20,8 @@ export default function Nav() {
             {
                 auth.isLogged &&
                 <>
-                    <Link to="/user" style={{ color: "white" }}>
-                        {auth.user.username}
+                    <Link to="/profile" style={{ color: "white" }}>
+                        {auth.user?.username}
                     </Link>
                     <Link to="/" onClick={() => dispatch(logout())} style={{ color: "white" }}>
                         登出
