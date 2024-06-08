@@ -31,4 +31,4 @@ npm run build
 将生产应用程序构建到`build`文件夹，可以部署到服务器。
 
 ## 项目效果
-![alt text](image.png)
+![alt text](image-1.png)

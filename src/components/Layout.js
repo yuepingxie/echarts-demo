@@ -4,7 +4,6 @@ const Layout = props => {
     return (
         <div>
             <MainBox />
-            <hr />
             {props.children}
         </div>
     )
